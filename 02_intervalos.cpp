@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
 	auto int3(0);
 	auto int4(0);
 
-	cout << "Entre com valores inteiros ( Ctrl + d p / encerrar ): " << endl;
+	cout << "Enter integer numbers (Press Ctrl + D to exit):" << endl;
 
 	while (cin >> x) {
 		if (x >= 0 && x < 25) int1++;
