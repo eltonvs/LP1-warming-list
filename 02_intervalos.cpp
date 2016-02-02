@@ -14,9 +14,9 @@ int main(int argc, char const *argv[]) {
 
 	while (cin >> x) {
 		if (x >= 0 && x < 25) int1++;
-		if (x >= 25 && x < 50) int2++;
-		if (x >= 50 && x < 75) int3++;
-		if (x >= 75 && x <= 100) int4++;
+		else if (x >= 25 && x < 50) int2++;
+		else if (x >= 50 && x < 75) int3++;
+		else if (x >= 75 && x <= 100) int4++;
 		tot++;
 	}
 
