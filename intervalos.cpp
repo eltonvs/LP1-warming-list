@@ -2,19 +2,6 @@
 
 using namespace std;
 
-int is_on_int_1(int n) {
-	return (n >= 0 && n < 25) ? 1 : 0;
-}
-int is_on_int_2(int n) {
-	return (n >= 25 && n < 50) ? 1 : 0;
-}
-int is_on_int_3(int n) {
-	return (n >= 50 && n < 75) ? 1 : 0;
-}
-int is_on_int_4(int n) {
-	return (n >= 75 && n <= 100) ? 1 : 0;
-}
-
 int main(int argc, char const *argv[]) {
 	int x;
 	auto tot(0);
@@ -26,10 +13,10 @@ int main(int argc, char const *argv[]) {
 	std::cout << "Entre com valores inteiros ( Ctrl + d p / encerrar ): " << endl;
 
 	while (cin >> x) {
-		if (is_on_int_1(x)) int1++;
-		if (is_on_int_2(x)) int2++;
-		if (is_on_int_3(x)) int3++;
-		if (is_on_int_4(x)) int4++;
+		if (x >= 0 && x < 25) int1++;
+		if (x >= 25 && x < 50) int2++;
+		if (x >= 50 && x < 75) int3++;
+		if (x >= 75 && x <= 100) int4++;
 		tot++;
 	}
 
