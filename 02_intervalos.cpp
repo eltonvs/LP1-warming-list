@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
 	auto int3(0);
 	auto int4(0);
 
-	std::cout << "Entre com valores inteiros ( Ctrl + d p / encerrar ): " << endl;
+	cout << "Entre com valores inteiros ( Ctrl + d p / encerrar ): " << endl;
 
 	while (cin >> x) {
 		if (x >= 0 && x < 25) int1++;
@@ -20,10 +20,10 @@ int main(int argc, char const *argv[]) {
 		tot++;
 	}
 
-	std::cout << static_cast<float>(int1)/tot*100 << '%' << " on interval [0, 25)" << endl;
-	std::cout << static_cast<float>(int2)/tot*100 << '%' << " on interval [25, 50)" << endl;
-	std::cout << static_cast<float>(int3)/tot*100 << '%' << " on interval [50, 75)" << endl;
-	std::cout << static_cast<float>(int4)/tot*100 << '%' << " on interval [75, 100]" << endl;
+	cout << static_cast<float>(int1)/tot*100 << '%' << " on interval [0, 25)" << endl;
+	cout << static_cast<float>(int2)/tot*100 << '%' << " on interval [25, 50)" << endl;
+	cout << static_cast<float>(int3)/tot*100 << '%' << " on interval [50, 75)" << endl;
+	cout << static_cast<float>(int4)/tot*100 << '%' << " on interval [75, 100]" << endl;
 
 	return EXIT_SUCCESS;
 }
