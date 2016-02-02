@@ -1,2 +1,5 @@
 # Ignore .o files
 *.o
+# Ignore compiled files
+*
+!*.*
