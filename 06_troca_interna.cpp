@@ -16,10 +16,8 @@ int main(int argc, char const *argv[]) {
 	cout << "Changing values..." << endl;
 
 	// Change values
-	for (int i = 0; i < 20/2; i++) {
-		int t;
+	for (int i = 0, t; i < 20/2; i++)
 		t = a[i], a[i] = a[20-i-1], a[20-i-1] = t;
-	}
 
 	// Display vector values
 	for (int i = 0; i < 20; i++)
