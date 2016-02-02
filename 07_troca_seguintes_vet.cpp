@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]) {
 
 	// Print vector
 	for (int i = 0; i < 20; i++)
-		cout << "vet[" << i << "] = " << b[i] << endl;
+		cout << "b[" << i << "] = " << b[i] << endl;
 
 	cout << "Changing positions (odd <-> even)...";
 
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
 
 	// Print new vector
 	for (int i = 0; i < 20; i++)
-		cout << "vet[" << i << "] = " << b[i] << endl;
+		cout << "b[" << i << "] = " << b[i] << endl;
 
 	return EXIT_SUCCESS;
 }
