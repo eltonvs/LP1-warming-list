@@ -11,24 +11,24 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-	int c[20];
+	auto size(20);
+	int c[size];
 
 	// Get vector data
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < size; i++)
 		cin >> c[i];
 
 	// Print vector
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < size; i++)
 		cout << "c[" << i << "] = " << c[i] << endl;
 
 	// Remove negative/null values from vector
-	for (int i = 0; i < 20; i++)
-		if (c[i] <= 0) c[i] = 0;
+	for (int i = 0; i < size; i++)
+		if (c[i] <= 0) size--, c[i] = c[size], i--;
 
 	// Print new vector
-	for (int i = 0; i < 20; i++)
-		if (c[i] != 0)
-			cout << "c[" << i << "] = " << c[i] << endl;
+	for (int i = 0; i < size; i++)
+		cout << "c[" << i << "] = " << c[i] << endl;
 
 	return EXIT_SUCCESS;
 }
