@@ -1,3 +1,11 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado menor_elemento.cpp que lê 20 números
+ * reais, os armazena em um arranjo unidimensional (vetor) Vet e o imprime na tela. A
+ * seguir, o programa deve encontrar o menor elemento e a sua posição no vetor Vet e
+ * escrever na saída padrão qual é o menor elemento e que posição ele ocupa no vetor.
+ */
+
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado troca_seguintes_vet.cpp que lê 20 inteiros,
+ * os armazena em um arranjo unidimensional (vetor) B e o imprime na tela. A seguir,
+ * o programa deve trocar o conteúdo dos elementos de B de ordem ímpar com os
+ * de ordem par imediatamente seguintes e imprimir o vetor modificado.
+ */
+
 #include <iostream>
 
 using namespace std;

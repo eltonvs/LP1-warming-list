@@ -1,3 +1,11 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado compacta_vet.cpp que lê 20 inteiros,
+ * os armazena em um arranjo unidimensional (vetor) C e o imprime na tela. A seguir, o
+ * programa deve compactar o vetor C, retirando dele todos os valores nulos ou negativos
+ * e imprimir o vetor modificado.
+ */
+
 #include <iostream>
 
 using namespace std;

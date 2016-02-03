@@ -1,3 +1,11 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado intervalos.cpp que lê um número não
+ * conhecido de valores, um de cada vez, e conta quantos deles estão em cada um dos
+ * intervalos [0, 25), [25, 50), [50, 75) e [75, 100].
+ */
+
+
 #include <iostream>
 
 using namespace std;

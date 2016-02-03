@@ -1,3 +1,10 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado negativo5.cpp que lê 5 valores inteiros,
+ * um de cada vez, conta quantos destes valores são negativos e imprime esta informação.
+ */
+
+
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,13 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado troca_interna.cpp que lê 20 inteiros, os
+ * armazena em um arranjo unidimensional (vetor) A e o imprime na tela. A seguir, o
+ * programa deve trocar o conteúdo do último elemento de A com o 1º , do penúltimo
+ * com o 2º, do ante-penúltimo com o 3º e assim pode diante até que todos os elementos
+ * tenham sido trocados de lugar apenas uma vez. Por fim, o programa deve imprimir o
+ * vetor modificado.
+ */
+
 #include <iostream>
 
 using namespace std;

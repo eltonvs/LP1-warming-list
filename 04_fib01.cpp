@@ -1,3 +1,14 @@
+/*
+ * Question:
+ * Implemente um programa em C/C++ chamado fib01.cpp que recebe um valor inteiro
+ * positivo L e imprime os termos da série de Fibonacci inferiores a L.
+ * A sequência de Fibonacci define-se como tendo os dois primeiros termos iguais a 1
+ * e cada termo seguinte é a soma dos dois termos imediatamente anteriores. Desta
+ * forma se fosse fornecido ao programa uma entrada L = 15 o mesmo deveria produzir
+ * a seguinte sequência de termos da série: 1 1 2 3 5 8 13.
+ */
+
+
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,12 @@
+/*
+ * Question:
+ * Escreva um programa em C/C++ chamado soma_pares.cpp que lê um número não
+ * determinado de pares m, n, todos inteiros e positivos, um par de cada vez, calcula e
+ * escreve a soma dos n primeiros inteiros consecutivos à partir de m (inclusive). Para
+ * encerrar a entrada de dados você pode utilizar <Ctrl+d> ou assumir que quando
+ * m = n = 0 o usuário deseja encerrar.
+ */
+
 #include <iostream>
 
 using namespace std;
