@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]) {
 	for (int i = 0; i < 20; i++)
 		cout << "b[" << i << "] = " << b[i] << endl;
 
-	cout << "Changing positions (odd <-> even)...";
+	cout << "Changing positions (odd <-> even)..." << endl;
 
 	// Change positions (odd <-> even)
 	for (int i = 0, t; i < 20 - 1; i += 2)
