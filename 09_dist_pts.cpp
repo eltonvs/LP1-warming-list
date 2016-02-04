@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 using namespace std;
@@ -37,8 +38,7 @@ int main(int argc, char const *argv[]) {
 	cin >> P2.y;
 
 	// Show Euclidean distance
-	cout.precision(2);
-	cout << "The Euclidean Distance is " << euclidean_distance(P1, P2) << endl;
+	cout << "The Euclidean Distance is " << setw(2) << euclidean_distance(P1, P2) << endl;
 
 	return EXIT_SUCCESS;
 }
