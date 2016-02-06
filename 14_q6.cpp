@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Implemente um programa denominado q6.cpp que cria um vetor de inteiros (pode ser
  * estático ou fornecido pelo usuário) e invoca a função maiores. Esta função recebe como
  * parâmetro o vetor de números inteiros (vet) de tamanho n e um valor x. A função deve

@@ -1,11 +1,12 @@
 /*
+ * Question:
  * Escreva um programa em C++ chamado vet5.cpp que recebe um conjunto de 30
  * valores inteiros e os coloca em 2 vetores, A e B, conforme forem pares ou ímpares. Os
  * vetores A e B deverão ter 5 posições de armazenamento. Quando um dos dois vetores
  * fica cheio, o programa deve imprimi-lo. Terminada a entrada de dados, o programa
  * deve imprimir o conteúdo dos dois vetores. Note que cada vetor pode ser preenchido
  * tantas vezes quantas forem necessárias.
-*/
+ */
 
 #include <iostream>
 

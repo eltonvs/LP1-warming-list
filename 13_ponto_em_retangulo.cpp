@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Implemente um programa em C++ chamado ponto_em_retangulo.cpp que verifica se
  * um ponto P = (Xp, Yp), determinado por suas coordenadas Cartesianas, está localizado
  * dentro, na borda ou fora de um retângulo definido por dois pontos (também determinados
@@ -14,7 +15,7 @@
  * fato definem um retângulo válido (isto é, R1 != R2). A seguir o programa deve realizar
  * testes e indicar se o ponto P está dentro, na borda ou fora do retângulo, imprimindo
  * uma mensagem para cada situação.
-*/
+ */
 
 #include <iostream>
 

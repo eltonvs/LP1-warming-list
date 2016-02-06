@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Implemente um programa denominado equacao.cpp que invoca a função raizes, que
  * por sua vez calcula as raízes de uma equação do segundo grau, do tipo ax²+bx+c = 0.
  * Essa função deve obedecer o protótipo
