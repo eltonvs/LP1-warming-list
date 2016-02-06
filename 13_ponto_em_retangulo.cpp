@@ -57,24 +57,23 @@ int main(int argc, char const *argv[]) {
 	}
 
 	// Verify if P is inside the rectangle
-	if (P.x < SD.x && P.y < SD.y && P.x > IE.x && P.y > IE.y) {
+	if (P.x < SD.x && P.y < SD.y && P.x > IE.x && P.y > IE.y)
 		cout << "The P dot is inside the rectangle" << endl;
 	// P is on top border of the rectangle
-	}else if (P.y == SD.y && P.x < SD.x && P.x > IE.x) {
+	else if (P.y == SD.y && P.x < SD.x && P.x > IE.x)
 		cout << "The P dot is on the top border of the rectangle" << endl;
 	// P is on bottom border of the rectangle
-	}else if (P.y == IE.y && P.x < SD.x && P.x > IE.x) {
+	else if (P.y == IE.y && P.x < SD.x && P.x > IE.x)
 		cout << "The P dot is on the bottom border of the rectangle" << endl;
 	// P is on right border of the rectangle
-	}else if (P.x == SD.y && P.y < SD.y && P.y > IE.y) {
+	else if (P.x == SD.y && P.y < SD.y && P.y > IE.y)
 		cout << "The P dot is on the right border of the rectangle" << endl;
 	// P is on left border of the rectangle
-	}else if (P.x == IE.y && P.y < SD.y && P.y > IE.y) {
+	else if (P.x == IE.y && P.y < SD.y && P.y > IE.y)
 		cout << "The P dot is on the left border of the rectangle" << endl;
 	// P is outside the rectangle
-	}else {
+	else
 		cout << "The P dot is outside the rectangle" << endl;
-	}
 
 	return EXIT_SUCCESS;
 }
