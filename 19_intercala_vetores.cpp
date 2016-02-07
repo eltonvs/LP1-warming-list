@@ -1,4 +1,5 @@
 /*
+ * Question
  * Faça uma função em C++ chamada intercalaVetores que recebe como parâmetro
  * dois vetores, vetA e vetB, de caracteres (possivelmente de tamanhos diferentes) e os
  * combina em um só vetor. Para gerar o vetor combinado deve-se intercalar elementos

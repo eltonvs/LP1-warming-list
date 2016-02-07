@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Implemente um programa chamado avalia_poli.cpp que recebe como entrada de
  * dados inteiros correspondente a um polinômio e um valor real para o qual o polinômio
  * deve ser avaliado. O polinômio poderá ter, no máximo, 4 termos ou monômios.
