@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]) {
 
 	// Remove negative/null values from vector
 	for (int i = 0; i < size; i++)
-		if (c[i] <= 0) size--, c[i] = c[size], i--;
+		if (c[i] <= 0) c[i] = c[--size], i--;
 
 	// Print new vector
 	for (int i = 0; i < size; i++)
