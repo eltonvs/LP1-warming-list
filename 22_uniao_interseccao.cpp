@@ -39,7 +39,11 @@ void union_intersection(const int *vA, const int sA, const int *vB, const int sB
 		if (has_in_array(*(vA+i), sB, vB) && !has_in_array(*(vA+i), p, v1))
 			*(v1+p++) = *(vA+i);
 	*sI = p;
-	*vI = new int [p];
+	try {
+		*vI = new int [*sI];
+	}catch (const bad_alloc & e) {
+		cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	for (int i = 0; i < p; i++)
 		*(*vI+i) = *(v1+i);
@@ -54,7 +58,11 @@ void union_intersection(const int *vA, const int sA, const int *vB, const int sB
 			*(v2+p++) = *(vB+i);
 
 	*sU = p;
-	*vU = new int [*sU];
+	try {
+		*vU = new int [*sU];
+	}catch (const bad_alloc & e) {
+		cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	for (int i = 0; i < p; i++)
 		*(*vU+i) = *(v2+i);
