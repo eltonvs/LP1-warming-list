@@ -23,7 +23,11 @@ using namespace std;
 
 char *merge_vector(const char *vetA, int sizeA, const char *vetB, int sizeB) {
 	char *result_vector;
-	result_vector = new char [sizeA+sizeB];
+	try {
+		result_vector = new char [sizeA+sizeB];
+	}catch (const bad_alloc & e) {
+		cerr << "[merge_vector()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	for (int i = 0, j = 0; i < sizeA || i < sizeB; i++) {
 		if (i < sizeA)
@@ -47,9 +51,17 @@ int main(int argc, char const *argv[]) {
 	cout << "Enter the size of the second vector: ";
 	cin >> size_v2;
 
-	// Allocate memory
-	v1 = new char [size_v1];
-	v2 = new char [size_v2];
+	// Allocate memory (w/ try/catch)
+	try {
+		v1 = new char [size_v1];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
+	try {
+		v2 = new char [size_v2];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	// Get values for the first vector
 	cout << "Enter values:" << endl;
@@ -69,11 +81,10 @@ int main(int argc, char const *argv[]) {
 	char *result = merge_vector(v1, size_v1, v2, size_v2);
 
 	// Print result vector
-	cout << "Result vector:" << endl;
+	cout << "Result vector: [ ";
 	for (int i = 0; i < size_v1 + size_v2; i++)
-		cout << *(result+i);
-
-	cout << endl;
+		cout << *(result+i) << (i < size_v1 + size_v2 - 1 ? ", " : " ");
+	cout << "]" << endl;
 
 	return EXIT_SUCCESS;
 }
