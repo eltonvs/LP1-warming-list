@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Implemente um programa em C++ chamado preenche_matriz.cpp que lê um inteiro
  * positivo n e cria uma matriz quadrada n x n que deverá ser preenchida automaticamente
  * com inteiros positivos de 1 até n², dando prioridade a linhas ao invés de colunas
