@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Faça uma função em C++ chamada uniaoIntersecao que recebe como parâmetro
  * dois vetores, vetA e vetB, de inteiros (possivelmente de tamanhos diferentes) e os
  * combina em dois vetores de saída, vetUni e vetInt. Para gerar o vetor vetUni a
@@ -25,62 +26,62 @@
 
 using namespace std;
 
-bool has_in_array(int x, int arr_s, int *arr) {
+bool has_in_array(const int x, const int arr_s, const int *arr) {
 	for (int i = 0; i < arr_s; i++)
 		if (x == *(arr+i)) return true;
 	return false;
 }
 
-void union_intersection(const int *v_A, const int s_A, int *v_B, const int s_B, int *v_Uni, int *s_Uni, int *v_Int, int *s_Int) {
-	int v1[s_A < s_B ? s_A : s_B], v2[s_A+s_B], p = 0;
+void union_intersection(const int *vA, const int sA, const int *vB, const int sB, int **vU, int *sU, int **vI, int *sI) {
+	int v1[sA < sB ? sA : sB], v2[sA+sB], p = 0;
 
-	for (int i = 0; i < s_A; i++)
-		if (has_in_array(*(v_A+i), s_B, v_B) && !has_in_array(*(v_A+i), p, v1))
-			*(v1+p++) = *(v_A+i);
-	*s_Int = p;
-	v_Int = new int [p];
+	for (int i = 0; i < sA; i++)
+		if (has_in_array(*(vA+i), sB, vB) && !has_in_array(*(vA+i), p, v1))
+			*(v1+p++) = *(vA+i);
+	*sI = p;
+	*vI = new int [p];
 
 	for (int i = 0; i < p; i++)
-		*(v_Int+i) = *(v1+i);
+		*(*vI+i) = *(v1+i);
 
 	p = 0;
 
-	for (int i = 0; i < s_A; i++)
-		if (!has_in_array(*(v_A+i), p, v2))
-			*(v2+p++) = *(v_A+i);
-	for (int i = 0; i < s_B; i++)
-		if (!has_in_array(*(v_B+i), p, v2))
-			*(v2+p++) = *(v_B+i);
+	for (int i = 0; i < sA; i++)
+		if (!has_in_array(*(vA+i), p, v2))
+			*(v2+p++) = *(vA+i);
+	for (int i = 0; i < sB; i++)
+		if (!has_in_array(*(vB+i), p, v2))
+			*(v2+p++) = *(vB+i);
 
-	*s_Uni = p;
-	v_Uni = new int [*s_Uni];
+	*sU = p;
+	*vU = new int [*sU];
 
-	for (int i = 0; i < *s_Uni; i++)
-		*(v_Uni+i) = *(v2+i);
+	for (int i = 0; i < p; i++)
+		*(*vU+i) = *(v2+i);
 }
 
 int main(int argc, char const *argv[]) {
-	int v1[5]={1, 2, 2, 4, 5},
+	int v1[5]={1, 2, 20, 4, 5},
 		v2[3]={1, 2, 3},
-		*v_uni,
-		*v_int,
-		s_uni,
-		s_int;
+		*vU,
+		*vI,
+		sU,
+		sI;
 
-	union_intersection(v1, 5, v2, 3, v_uni, &s_uni, v_int, &s_int);
+	union_intersection(v1, 5, v2, 3, &vU, &sU, &vI, &sI);
 
 	for (int i = 0; i < 5; i++)
-		cout << ">> " << *(v1+i) << endl;
-	cout << "s_v1 = " << 5 << endl;
+		cout << "v1[" << i << "] = " << *(v1+i) << endl;
+	cout << "v1 size = " << 5 << endl << endl;
 	for (int i = 0; i < 3; i++)
-		cout << ">> " << *(v2+i) << endl;
-	cout << "s_v2 = " << 3 << endl;
-	for (int i = 0; i < s_uni; i++)
-		cout << ">> " << *(v_uni+i) << endl;
-	cout << "s_vuni = " << s_uni << endl;
-	for (int i = 0; i < s_int; i++)
-		cout << ">> " << *(v_int+i) << endl;
-	cout << "s_vint = " << s_int << endl;
+		cout << "v2[" << i << "] = " << *(v2+i) << endl;
+	cout << "v2 size = " << 3 << endl << endl;
+	for (int i = 0; i < sU; i++)
+		cout << "vU[" << i << "] = " << *(vU+i) << endl;
+	cout << "Union vector size: " << sU << endl << endl;
+	for (int i = 0; i < sI; i++)
+		cout << "vI[" << i << "] = " << *(vI+i) << endl;
+	cout << "Intersection vector size: " << sI << endl;
 
 	return EXIT_SUCCESS;
 }
