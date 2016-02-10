@@ -1,4 +1,5 @@
 /*
+ * Question:
  * Uma matriz que tem aproximadamente 2/3 de seus elementos iguais a zero é denominada
  * de matriz esparsa. Implemente um programa em C++ chamado esparsa.cpp que lê uma
  * matriz esparsa de inteiros M[10][10] e forma uma matriz condensada, de apenas
