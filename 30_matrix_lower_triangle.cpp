@@ -36,11 +36,11 @@ int main(int argc, char const *argv[]) {
 }
 
 float sum_lower_triangle(float **m, int n) {
-	auto sum(0), p(0);
+	auto sum(0);
 	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++, p++)
+		for (int j = 0; j < n; j++)
 			if (i > j)
-				sum += *(*m+p);
+				sum += *(*m+i*n+j);
 
 	return sum;
 }
