@@ -18,7 +18,11 @@ int main(int argc, char const *argv[]) {
 	int *m, *condensed, c_size = 0;
 
 	// Allocate memory to matrix
-	m = new int [10*10];
+	try {
+		m = new int [10*10];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	// Get matrix content
 	for (int i = 0; i < 10; i++)
@@ -29,7 +33,11 @@ int main(int argc, char const *argv[]) {
 		}
 
 	// Allocate memory to condensed matrix
-	condensed = new int [c_size*3];
+	try {
+		condensed = new int [c_size*3];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	// Insert data on condensed matrix
 	for (int i = 0, c = 0; i < 10; i++)

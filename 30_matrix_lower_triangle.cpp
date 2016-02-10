@@ -23,7 +23,11 @@ int main(int argc, char const *argv[]) {
 	cin >> n;
 
 	// Allocate memory
-	m = new float [n];
+	try {
+		m = new float [n];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	for (int i = 0; i < n*n; i++) {
 		cout << "Enter the " << i+1 << "º number: ";

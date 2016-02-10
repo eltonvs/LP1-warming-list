@@ -15,7 +15,11 @@ int main(int argc, char const *argv[]) {
 	int *a, b, b_row;
 
 	// Allocate memory to a
-	a = new int [10*10];
+	try {
+		a = new int [10*10];
+	}catch (const bad_alloc & e) {
+		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+	}
 
 	// Get matrix content
 	for (int i = 0; i < 10; i++)

@@ -47,7 +47,7 @@ char *escaped_string(char const *str) {
 	try {
 		new_str = new char [str_size];
 	}catch (const bad_alloc & e) {
-		cerr << "[escape_string()]: bad_alloc caught:" << e.what() << "\n";
+		cerr << "[escaped_string()]: bad_alloc caught:" << e.what() << "\n";
 	}
 
 	for (int i = 0, j = 0; i < str_size; i++)
