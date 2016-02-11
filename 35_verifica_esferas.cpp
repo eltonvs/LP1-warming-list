@@ -80,7 +80,7 @@ int main(int argc, char const *argv[]) {
 }
 
 double distance_between_dots(const Dot *a, const Dot *b) {
-    return sqrt(pow((*a).x - (*b).x, 2) + pow((*a).y - (*b).y, 2) + pow((*a).z - (*b).z, 2));
+    return sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2) + pow(a->z - b->z, 2));
 }
 
 int inside_sphere(const Dot *c, double r, const Dot *p) {

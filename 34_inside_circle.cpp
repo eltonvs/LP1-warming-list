@@ -44,13 +44,13 @@ int main(int argc, char const *argv[]) {
     cin >> p.y;
 
     // Output
-    cout << "The dot " << (inside_circle(&c, r, &p) ? "is" : "isn't") << " inside the circle"  << endl;
+    cout << "The dot is" << (inside_circle(&c, r, &p) ? "" : "n't") << " inside the circle"  << endl;
 
     return EXIT_SUCCESS;
 }
 
 double distance_between_dots(const Dot *a, const Dot *b) {
-    return sqrt(pow((*a).x - (*b).x, 2) + pow((*a).y - (*b).y, 2.0));
+    return sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2.0));
 }
 
 int inside_circle(const Dot *c, int r, const Dot *p) {
