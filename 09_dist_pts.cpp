@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado dist pts.cpp que calcula e imprime a
  * distância Euclidiana entre dois pontos do R² , P1 = (x1, y1) e P2 = (x2 , y2),
@@ -11,34 +13,42 @@
 #include <iomanip>
 #include <cmath>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::fixed;
+using std::setprecision;
 
-struct Dot {
-	double x, y;
-};
+typedef struct _Dot {
+    double x, y;
+} Dot;
 
 double euclidean_distance(Dot P1, Dot P2) {
-	return pow(P2.x - P1.x, 2) + pow(P2.y - P1.y, 2);
+    return sqrt(pow(P2.x - P1.x, 2) + pow(P2.y - P1.y, 2));
 }
 
 int main(int argc, char const *argv[]) {
-	Dot P1, P2;
+    Dot P1 = {}, P2 = {};
 
-	// Scan P1
-	cout << "Insert the coordinates of P1:" << endl;
-	cout << "X = ";
-	cin >> P1.x;
-	cout << "Y = ";
-	cin >> P1.y;
-	// Scan P2
-	cout << "Insert the coordinates of P2:" << endl;
-	cout << "X = ";
-	cin >> P2.x;
-	cout << "Y = ";
-	cin >> P2.y;
+    // Set float numbers precision
+    cout << fixed;
+    cout << setprecision(2);
 
-	// Show Euclidean distance
-	cout << "The Euclidean Distance is " << setw(2) << euclidean_distance(P1, P2) << endl;
+    // Scan P1
+    cout << "Insert the coordinates of P1:" << endl;
+    cout << "X = ";
+    cin >> P1.x;
+    cout << "Y = ";
+    cin >> P1.y;
+    // Scan P2
+    cout << "Insert the coordinates of P2:" << endl;
+    cout << "X = ";
+    cin >> P2.x;
+    cout << "Y = ";
+    cin >> P2.y;
 
-	return EXIT_SUCCESS;
+    // Show Euclidean distance
+    cout << "The Euclidean Distance is " << euclidean_distance(P1, P2) << endl;
+
+    return EXIT_SUCCESS;
 }

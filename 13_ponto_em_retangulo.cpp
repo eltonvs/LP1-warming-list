@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado ponto_em_retangulo.cpp que verifica se
  * um ponto P = (Xp, Yp), determinado por suas coordenadas Cartesianas, está localizado
@@ -19,62 +21,64 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 struct Dot {
-	double x, y;
+    double x, y;
 };
 
 int main(int argc, char const *argv[]) {
-	Dot P, IE, SD;
+    Dot P, IE, SD;
 
-	// Get R1 coord
-	cout << "Enter R1:" << endl;
-	cout << "\tX = ";
-	cin >> IE.x;
-	cout << "\tY = ";
-	cin >> IE.y;
-	// Get R2 coord
-	cout << "Enter R2:" << endl;
-	cout << "\tX = ";
-	cin >> SD.x;
-	cout << "\tY = ";
-	cin >> SD.y;
-	// Get P coord
-	cout << "Enter P:" << endl;
-	cout << "\tX = ";
-	cin >> P.x;
-	cout << "\tY = ";
-	cin >> P.y;
+    // Get R1 coord
+    cout << "Enter R1:" << endl;
+    cout << "\tX = ";
+    cin >> IE.x;
+    cout << "\tY = ";
+    cin >> IE.y;
+    // Get R2 coord
+    cout << "Enter R2:" << endl;
+    cout << "\tX = ";
+    cin >> SD.x;
+    cout << "\tY = ";
+    cin >> SD.y;
+    // Get P coord
+    cout << "Enter P:" << endl;
+    cout << "\tX = ";
+    cin >> P.x;
+    cout << "\tY = ";
+    cin >> P.y;
 
-	// Verify if the rectangle is valid
-	if (SD.x == IE.x && SD.y == IE.y) {
-		cout << "This rectangle is invalid" << endl;
-		return EXIT_SUCCESS;
-	// Verify if SD is the bottom-left dot and IE is the top-right dot
-	}else if (SD.x < IE.x && SD.y < IE.y) {
-		SD.x += IE.x, IE.x = SD.x - IE.x, SD.x -= IE.x;
-		SD.y += IE.y, IE.y = SD.y - IE.y, SD.y -= IE.y;
-	}
+    // Verify if the rectangle is valid
+    if (SD.x == IE.x && SD.y == IE.y) {
+        cout << "This rectangle is invalid" << endl;
+        return EXIT_SUCCESS;
+    // Verify if SD is the bottom-left dot and IE is the top-right dot
+    } else if (SD.x < IE.x && SD.y < IE.y) {
+        SD.x += IE.x, IE.x = SD.x - IE.x, SD.x -= IE.x;
+        SD.y += IE.y, IE.y = SD.y - IE.y, SD.y -= IE.y;
+    }
 
-	// Verify if P is inside the rectangle
-	if (P.x < SD.x && P.y < SD.y && P.x > IE.x && P.y > IE.y)
-		cout << "The P dot is inside the rectangle" << endl;
-	// P is on top border of the rectangle
-	else if (P.y == SD.y && P.x < SD.x && P.x > IE.x)
-		cout << "The P dot is on the top border of the rectangle" << endl;
-	// P is on bottom border of the rectangle
-	else if (P.y == IE.y && P.x < SD.x && P.x > IE.x)
-		cout << "The P dot is on the bottom border of the rectangle" << endl;
-	// P is on right border of the rectangle
-	else if (P.x == SD.y && P.y < SD.y && P.y > IE.y)
-		cout << "The P dot is on the right border of the rectangle" << endl;
-	// P is on left border of the rectangle
-	else if (P.x == IE.y && P.y < SD.y && P.y > IE.y)
-		cout << "The P dot is on the left border of the rectangle" << endl;
-	// P is outside the rectangle
-	else
-		cout << "The P dot is outside the rectangle" << endl;
+    // Verify if P is inside the rectangle
+    if (P.x < SD.x && P.y < SD.y && P.x > IE.x && P.y > IE.y)
+        cout << "The P dot is inside the rectangle" << endl;
+    // P is on top border of the rectangle
+    else if (P.y == SD.y && P.x < SD.x && P.x > IE.x)
+        cout << "The P dot is on the top border of the rectangle" << endl;
+    // P is on bottom border of the rectangle
+    else if (P.y == IE.y && P.x < SD.x && P.x > IE.x)
+        cout << "The P dot is on the bottom border of the rectangle" << endl;
+    // P is on right border of the rectangle
+    else if (P.x == SD.y && P.y < SD.y && P.y > IE.y)
+        cout << "The P dot is on the right border of the rectangle" << endl;
+    // P is on left border of the rectangle
+    else if (P.x == IE.y && P.y < SD.y && P.y > IE.y)
+        cout << "The P dot is on the left border of the rectangle" << endl;
+    // P is outside the rectangle
+    else
+        cout << "The P dot is outside the rectangle" << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

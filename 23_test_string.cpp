@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado test string.cpp onde você deverá implementar
  * as funções solicitadas nas questões 16 à 19. Não esqueça de declarar o protótipo
@@ -42,7 +44,10 @@
 #include <iostream>
 #include <cstring>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cerr;
+using std::bad_alloc;
 
 // Prototypes
 char *prefix(const char *str, int n);
@@ -50,92 +55,92 @@ char *reverse(const char *str);
 char *invertCase(const char *str);
 char *shiftString(const char *str);
 
-int main (int argc, char const *argv[]) {
-	char *new_str;
+int main(int argc, char const *argv[]) {
+    char *new_str;
 
-	new_str = prefix("I like to program in C++", 6);
-	cout << new_str << endl;
+    new_str = prefix("I like to program in C++", 6);
+    cout << new_str << endl;
 
-	new_str = reverse("Wisdom and Honor");
-	cout << new_str << endl;
+    new_str = reverse("Wisdom and Honor");
+    cout << new_str << endl;
 
-	new_str = invertCase("UFRN - DIMAp - Dim0426");
-	cout << new_str << endl;
+    new_str = invertCase("UFRN - DIMAp - Dim0426");
+    cout << new_str << endl;
 
-	new_str = shiftString("House");
-	cout << new_str << endl;
+    new_str = shiftString("House");
+    cout << new_str << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 char *prefix(const char *str, int n) {
-	int str_size = strlen(str);
-	char *new_str;
+    int str_size = strlen(str);
+    char *new_str;
 
-	if (n >= str_size) {
-		try {
-			new_str = new char [str_size];
-		}catch (const bad_alloc & e) {
-			cerr << "[prefix()]: bad_alloc caught:" << e.what() << "\n";
-		}
-		strcpy(new_str, str);
-	}else {
-		try {
-			new_str = new char [n];
-		}catch (const bad_alloc & e) {
-			cerr << "[prefix()]: bad_alloc caught:" << e.what() << "\n";
-		}
-		for (int i = 0; i < n; i++)
-			*(new_str+i) = *(str+i);
-	}
+    if (n >= str_size) {
+        try {
+            new_str = new char[str_size];
+        }catch (const bad_alloc & e) {
+            cerr << "[prefix()]: bad_alloc caught:" << e.what() << "\n";
+        }
+        strcpy(new_str, str);
+    } else {
+        try {
+            new_str = new char[n];
+        }catch (const bad_alloc & e) {
+            cerr << "[prefix()]: bad_alloc caught:" << e.what() << "\n";
+        }
+        for (int i = 0; i < n; i++)
+            *(new_str+i) = *(str+i);
+    }
 
-	return new_str;
+    return new_str;
 }
 
 char *reverse(const char *str) {
-	int str_size = strlen(str);
-	char *new_str;
+    int str_size = strlen(str);
+    char *new_str;
 
-	try {
-		new_str = new char [str_size];
-	}catch (const bad_alloc & e) {
-		cerr << "[reverse()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    try {
+        new_str = new char[str_size];
+    }catch (const bad_alloc & e) {
+        cerr << "[reverse()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0; i < str_size; i++)
-		*(new_str+i) = *(str+str_size-i-1);
+    for (int i = 0; i < str_size; i++)
+        *(new_str+i) = *(str+str_size-i-1);
 
-	return new_str;
+    return new_str;
 }
 
 char *invertCase(const char *str) {
-	int str_size = strlen(str);
-	char *new_str;
+    int str_size = strlen(str);
+    char *new_str;
 
-	try {
-		new_str = new char [str_size];
-	}catch (const bad_alloc & e) {
-		cerr << "[invertCase()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    try {
+        new_str = new char[str_size];
+    }catch (const bad_alloc & e) {
+        cerr << "[invertCase()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0; i < str_size; i++)
-		*(new_str+i) = (*(str+i) >= 65 && *(str+i) <= 90) ? *(str+i) + 32 : (*(str+i) >= 97 && *(str+i) <= 122) ? *(str+i) - 32 : *(str+i);
+    for (int i = 0; i < str_size; i++)
+        *(new_str+i) = (*(str+i) >= 65 && *(str+i) <= 90) ? *(str+i) + 32 : (*(str+i) >= 97 && *(str+i) <= 122) ? *(str+i) - 32 : *(str+i);
 
-	return new_str;
+    return new_str;
 }
 
 char *shiftString(const char *str) {
-	int str_size = strlen(str);
-	char *new_str;
+    int str_size = strlen(str);
+    char *new_str;
 
-	try {
-		new_str = new char [str_size];
-	}catch (const bad_alloc & e) {
-		cerr << "[shiftString()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    try {
+        new_str = new char[str_size];
+    }catch (const bad_alloc & e) {
+        cerr << "[shiftString()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0; i < str_size; i++)
-		*(new_str+i) = (*(str+i) == 90) ? 65 : (*(str+i) == 122) ? 97 : *(str+i) + 1;
+    for (int i = 0; i < str_size; i++)
+        *(new_str+i) = (*(str+i) == 90) ? 65 : (*(str+i) == 122) ? 97 : *(str+i) + 1;
 
-	return new_str;
+    return new_str;
 }

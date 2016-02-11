@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente uma função que indique se uma matriz quadrada de números inteiros é
  * uma matriz identidade ou não. A função deve retornar 1 se a matriz for uma matriz
@@ -11,29 +13,31 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 // Prototype
 int is_identity_matrix(const int *m, int n);
 
 int main(int argc, char const *argv[]) {
-	int id_matrix[2][2] = {{1, 0}, {0, 1}};
-	int not_id_matrix[2][2] = {{1, -1}, {-1, 1}};
+    int id_matrix[2][2] = {{1, 0}, {0, 1}};
+    int not_id_matrix[2][2] = {{1, -1}, {-1, 1}};
 
-	cout << is_identity_matrix(*id_matrix, 2) << endl;
-	cout << is_identity_matrix(*not_id_matrix, 2) << endl;
+    cout << is_identity_matrix(*id_matrix, 2) << endl;
+    cout << is_identity_matrix(*not_id_matrix, 2) << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 int is_identity_matrix(const int *m, int n) {
-	for (int i = 0, j = 0; i < n*n; i++)
-		if (i == n*j+j) {
-			if (*(m+i) != 1)
-				return 0;
-			j++;
-		}else if (*(m+i) != 0)
-			return 0;
+    for (int i = 0, j = 0; i < n*n; i++)
+        if (i == n*j+j) {
+            if (*(m+i) != 1)
+                return 0;
+            j++;
+        } else if (*(m+i) != 0) {
+            return 0;
+        }
 
-	return 1;
+    return 1;
 }

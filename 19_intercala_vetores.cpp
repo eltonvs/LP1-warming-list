@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question
  * Faça uma função em C++ chamada intercalaVetores que recebe como parâmetro
  * dois vetores, vetA e vetB, de caracteres (possivelmente de tamanhos diferentes) e os
@@ -19,72 +21,76 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::cerr;
+using std::bad_alloc;
 
 char *merge_vector(const char *vetA, int sizeA, const char *vetB, int sizeB) {
-	char *result_vector;
-	try {
-		result_vector = new char [sizeA+sizeB];
-	}catch (const bad_alloc & e) {
-		cerr << "[merge_vector()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    char *result_vector;
+    try {
+        result_vector = new char[sizeA+sizeB];
+    }catch (const bad_alloc & e) {
+        cerr << "[merge_vector()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0, j = 0; i < sizeA || i < sizeB; i++) {
-		if (i < sizeA)
-			*(result_vector+j++) = *(vetA+i);
-		if (i < sizeB)
-			*(result_vector+j++) = *(vetB+i);
-	}
+    for (int i = 0, j = 0; i < sizeA || i < sizeB; i++) {
+        if (i < sizeA)
+            *(result_vector+j++) = *(vetA+i);
+        if (i < sizeB)
+            *(result_vector+j++) = *(vetB+i);
+    }
 
-	return result_vector;
+    return result_vector;
 }
 
 int main(int argc, char const *argv[]) {
-	char *v1, *v2;
-	int size_v1, size_v2;
+    char *v1, *v2;
+    int size_v1, size_v2;
 
-	// Get size from the first vector
-	cout << "Enter the size of the first vector: ";
-	cin >> size_v1;
+    // Get size from the first vector
+    cout << "Enter the size of the first vector: ";
+    cin >> size_v1;
 
-	// Get size from the second vector
-	cout << "Enter the size of the second vector: ";
-	cin >> size_v2;
+    // Get size from the second vector
+    cout << "Enter the size of the second vector: ";
+    cin >> size_v2;
 
-	// Allocate memory (w/ try/catch)
-	try {
-		v1 = new char [size_v1];
-	}catch (const bad_alloc & e) {
-		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
-	}
-	try {
-		v2 = new char [size_v2];
-	}catch (const bad_alloc & e) {
-		cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    // Allocate memory (w/ try/catch)
+    try {
+        v1 = new char[size_v1];
+    }catch (const bad_alloc & e) {
+        cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+    }
+    try {
+        v2 = new char[size_v2];
+    }catch (const bad_alloc & e) {
+        cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	// Get values for the first vector
-	cout << "Enter values:" << endl;
-	for (int i = 0; i < size_v1; i++) {
-		cout << "v1[" << i << "] = ";
-		cin >> v1[i];
-	}
+    // Get values for the first vector
+    cout << "Enter values:" << endl;
+    for (int i = 0; i < size_v1; i++) {
+        cout << "v1[" << i << "] = ";
+        cin >> v1[i];
+    }
 
-	// Get values for the second vector
-	cout << "Enter values:" << endl;
-	for (int i = 0; i < size_v2; i++) {
-		cout << "v1[" << i << "] = ";
-		cin >> v2[i];
-	}
+    // Get values for the second vector
+    cout << "Enter values:" << endl;
+    for (int i = 0; i < size_v2; i++) {
+        cout << "v1[" << i << "] = ";
+        cin >> v2[i];
+    }
 
-	// Call function
-	char *result = merge_vector(v1, size_v1, v2, size_v2);
+    // Call function
+    char *result = merge_vector(v1, size_v1, v2, size_v2);
 
-	// Print result vector
-	cout << "Result vector: [ ";
-	for (int i = 0; i < size_v1 + size_v2; i++)
-		cout << *(result+i) << (i < size_v1 + size_v2 - 1 ? ", " : " ");
-	cout << "]" << endl;
+    // Print result vector
+    cout << "Result vector: [ ";
+    for (int i = 0; i < size_v1 + size_v2; i++)
+        cout << *(result+i) << (i < size_v1 + size_v2 - 1 ? ", " : " ");
+    cout << "]" << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

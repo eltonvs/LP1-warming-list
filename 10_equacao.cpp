@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa denominado equacao.cpp que invoca a função raizes, que
  * por sua vez calcula as raízes de uma equação do segundo grau, do tipo ax²+bx+c = 0.
@@ -22,39 +24,41 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 int roots(float a, float b, float c, float *x1, float *x2) {
-	*x1 = 0, *x2 = 0;
-	if ((a > 0 && c > 0) || (a < 0 && c < 0)) {
-		return 0;
-	}else if(c == 0) {
-		*x1 = -b/a;
-		return 1;
-	}else {
-		float delta = pow(b, 2) - 4*a*c;
-		*x1 = (-b + sqrt(delta))/2, *x2 = -(b + sqrt(delta))/2;
-		if (*x1 < *x2) *x1 += *x2, *x2 = *x1 - *x2, *x1 -= *x2;
-		return 2;
-	}
+    *x1 = 0, *x2 = 0;
+    if ((a > 0 && c > 0) || (a < 0 && c < 0)) {
+        return 0;
+    } else if (c == 0) {
+        *x1 = -b/a;
+        return 1;
+    } else {
+        float delta = pow(b, 2) - 4*a*c;
+        *x1 = (-b + sqrt(delta))/2, *x2 = -(b + sqrt(delta))/2;
+        if (*x1 < *x2) *x1 += *x2, *x2 = *x1 - *x2, *x1 -= *x2;
+        return 2;
+    }
 }
 
 int main(int argc, char const *argv[]) {
-	float a, b, c, x1, x2;
+    float a, b, c, x1, x2;
 
-	// Receive values
-	cout << "Enter the function coefficients" << endl;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
+    // Receive values
+    cout << "Enter the function coefficients" << endl;
+    cout << "a = ";
+    cin >> a;
+    cout << "b = ";
+    cin >> b;
+    cout << "c = ";
+    cin >> c;
 
-	// Print Results
-	cout << "This function have " << roots(a, b, c, &x1, &x2) << " root(s)" << endl;
-	cout << "x' = " << x1 << endl;
-	cout << "x'' = " << x2 << endl;
+    // Print Results
+    cout << "This function have " << roots(a, b, c, &x1, &x2) << " root(s)" << endl;
+    cout << "x' = " << x1 << endl;
+    cout << "x'' = " << x2 << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

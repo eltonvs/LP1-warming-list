@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa chamado avalia_poli.cpp que recebe como entrada de
  * dados inteiros correspondente a um polinômio e um valor real para o qual o polinômio
@@ -20,37 +22,41 @@
 #include <iomanip>
 #include <cmath>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::fixed;
+using std::setprecision;
 
 int main(int argc, char const *argv[]) {
-	int coefficients[4], exponent[4];
-	double x, r = 0;
+    int coefficients[4], exponent[4];
+    double x, r = 0;
 
-	// Set float/double numbers precision
-	cout << fixed;
-	cout << setprecision(1);
+    // Set float/double numbers precision
+    cout << fixed;
+    cout << setprecision(1);
 
-	// Get the equation
-	cout << "Enter the equation:" << endl;
-	for (int i = 0; i < 4; i++)
-		cin >> coefficients[i] >> exponent[i];
+    // Get the equation
+    cout << "Enter the equation:" << endl;
+    for (int i = 0; i < 4; i++)
+        cin >> coefficients[i] >> exponent[i];
 
-	// Get x value
-	cin >> x;
+    // Get x value
+    cin >> x;
 
-	// Get the equation result
-	for (int i = 0; i < 4; i++)
-		r += coefficients[i] * pow(x, exponent[i]);
+    // Get the equation result
+    for (int i = 0; i < 4; i++)
+        r += coefficients[i] * pow(x, exponent[i]);
 
-	// Echo final result
-	cout << "f(x) =";
-	for (int i = 0; i < 4; i++)
-		if (coefficients[i] != 0) {
-			cout << (coefficients[i] < 0 ? " - " : (i ? " + " : " ")) << abs(coefficients[i]) << "x";
-			if (exponent[i] != 0)
-				cout << "^" << exponent[i];
-		}
-	cout << ", f(" << x << ") = " << r << endl;
+    // Echo final result
+    cout << "f(x) =";
+    for (int i = 0; i < 4; i++)
+        if (coefficients[i] != 0) {
+            cout << (coefficients[i] < 0 ? " - " : (i ? " + " : " ")) << abs(coefficients[i]) << "x";
+            if (exponent[i] != 0)
+                cout << "^" << exponent[i];
+        }
+    cout << ", f(" << x << ") = " << r << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado hanoi.cpp que resolve, recursivamente,
  * o problema das Torres de Hanoi. O problema das Torres de Hanoi consiste em 3
@@ -12,44 +14,46 @@
  * ao número de discos a ser resolvido e deve exibir a sequẽncia de movimentos para achar a
  * resposta, seguido do número de movimentos feito no total. Segue abaixo um exemplo de
  * execução desse programa:
- * | $ ./hanoi 3
- * | Mova disco de A para B
- * | Mova disco de A para C
- * | Mova disco de B para C
- * | Mova disco de A para B
- * | Mova disco de C para A
- * | Mova disco de C para B
- * | Mova disco de A para B
- * | Foram necessários 7 movimentos.
+ *   $ ./hanoi 3
+ *   Mova disco de A para B
+ *   Mova disco de A para C
+ *   Mova disco de B para C
+ *   Mova disco de A para B
+ *   Mova disco de C para A
+ *   Mova disco de C para B
+ *   Mova disco de A para B
+ *   Foram necessários 7 movimentos.
 */
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 void move(int n, char from, char to, char other, int *num_movements) {
-	if (n == 1) {
-		cout << "Move from " << from << " to " << to << endl;
-	}else {
-		move(n - 1, from, other, to, num_movements);
-		cout << "Move from " << from << " to " << to << endl;
-		move(n - 1, other, to, from, num_movements);
-	}
-	(*num_movements)++;
+    if (n == 1) {
+        cout << "Move from " << from << " to " << to << endl;
+    } else {
+        move(n - 1, from, other, to, num_movements);
+        cout << "Move from " << from << " to " << to << endl;
+        move(n - 1, other, to, from, num_movements);
+    }
+    (*num_movements)++;
 }
 
 int main(int argc, char const *argv[]) {
-	int discs, movements = 0;
+    int discs, mv = 0;
 
-	// Get discs number
-	cout << "Number of discs: ";
-	cin >> discs;
+    // Get discs number
+    cout << "Number of discs: ";
+    cin >> discs;
 
-	// Call function
-	move(discs, 'A', 'C', 'B', &movements);
+    // Call function
+    move(discs, 'A', 'C', 'B', &mv);
 
-	// Print number of movements
-	cout << movements << " movement" << (movements > 1 ? "s" : "") << " required" << endl;
+    // Print number of movements
+    cout << mv << " movement" << (mv > 1 ? "s" : "") << " required" << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

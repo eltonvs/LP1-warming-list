@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Faça um programa chamado deslocamentos.cpp que recebe quatro números inteiros,
  * n1, n2, n3 e n4, e um certo número de deslocamentos, d, que esses números devem
@@ -17,46 +19,48 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 void shift_n(int *n1, int *n2, int *n3, int *n4, int d) {
-	d %= 4;
-	if (d > 0) {
-		for (int i = 0; i < d; i++) {
-			int aux = *n4;
-			*n4 = *n3, *n3 = *n2, *n2 = *n1, *n1 = aux;
-		}
-	}else {
-		for (int i = 0; i > d; i--) {
-			int aux = *n1;
-			*n1 = *n2, *n2 = *n3, *n3 = *n4, *n4 = aux;
-		}
-	}
+    d %= 4;
+    if (d > 0) {
+        for (int i = 0; i < d; i++) {
+            int aux = *n4;
+            *n4 = *n3, *n3 = *n2, *n2 = *n1, *n1 = aux;
+        }
+    } else {
+        for (int i = 0; i > d; i--) {
+            int aux = *n1;
+            *n1 = *n2, *n2 = *n3, *n3 = *n4, *n4 = aux;
+        }
+    }
 }
 
 int main(int argc, char const *argv[]) {
-	int n1, n2, n3, n4, d;
+    int n1, n2, n3, n4, d;
 
-	// Get values
-	cout << "n1 = ";
-	cin >> n1;
-	cout << "n2 = ";
-	cin >> n2;
-	cout << "n3 = ";
-	cin >> n3;
-	cout << "n4 = ";
-	cin >> n4;
-	cout << "d = ";
-	cin >> d;
+    // Get values
+    cout << "n1 = ";
+    cin >> n1;
+    cout << "n2 = ";
+    cin >> n2;
+    cout << "n3 = ";
+    cin >> n3;
+    cout << "n4 = ";
+    cin >> n4;
+    cout << "d = ";
+    cin >> d;
 
-	// Call function
-	shift_n(&n1, &n2, &n3, &n4, d);
+    // Call function
+    shift_n(&n1, &n2, &n3, &n4, d);
 
-	// Print values
-	cout << "(" << n1 << ", ";
-	cout << n2 << ", ";
-	cout << n3 << ", ";
-	cout << n4 << ")" << endl;
+    // Print values
+    cout << "(" << n1 << ", ";
+    cout << n2 << ", ";
+    cout << n3 << ", ";
+    cout << n4 << ")" << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

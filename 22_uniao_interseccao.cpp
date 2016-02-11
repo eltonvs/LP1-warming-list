@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Faça uma função em C++ chamada uniaoIntersecao que recebe como parâmetro
  * dois vetores, vetA e vetB, de inteiros (possivelmente de tamanhos diferentes) e os
@@ -24,72 +26,70 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cerr;
+using std::bad_alloc;
 
 bool has_in_array(const int x, const int arr_s, const int *arr) {
-	for (int i = 0; i < arr_s; i++)
-		if (x == *(arr+i)) return true;
-	return false;
+    for (int i = 0; i < arr_s; i++)
+        if (x == *(arr+i)) return true;
+    return false;
 }
 
 void union_intersection(const int *vA, const int sA, const int *vB, const int sB, int **vU, int *sU, int **vI, int *sI) {
-	int v1[sA < sB ? sA : sB], v2[sA+sB], p = 0;
+    int v1[sA < sB ? sA : sB], v2[sA+sB], p = 0;
 
-	for (int i = 0; i < sA; i++)
-		if (has_in_array(*(vA+i), sB, vB) && !has_in_array(*(vA+i), p, v1))
-			*(v1+p++) = *(vA+i);
-	*sI = p;
-	try {
-		*vI = new int [*sI];
-	}catch (const bad_alloc & e) {
-		cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    for (int i = 0; i < sA; i++)
+        if (has_in_array(*(vA+i), sB, vB) && !has_in_array(*(vA+i), p, v1))
+            *(v1+p++) = *(vA+i);
+    *sI = p;
+    try {
+        *vI = new int[*sI];
+    }catch (const bad_alloc & e) {
+        cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0; i < p; i++)
-		*(*vI+i) = *(v1+i);
+    for (int i = 0; i < p; i++)
+        *(*vI+i) = *(v1+i);
 
-	p = 0;
+    p = 0;
 
-	for (int i = 0; i < sA; i++)
-		if (!has_in_array(*(vA+i), p, v2))
-			*(v2+p++) = *(vA+i);
-	for (int i = 0; i < sB; i++)
-		if (!has_in_array(*(vB+i), p, v2))
-			*(v2+p++) = *(vB+i);
+    for (int i = 0; i < sA; i++)
+        if (!has_in_array(*(vA+i), p, v2))
+            *(v2+p++) = *(vA+i);
+    for (int i = 0; i < sB; i++)
+        if (!has_in_array(*(vB+i), p, v2))
+            *(v2+p++) = *(vB+i);
 
-	*sU = p;
-	try {
-		*vU = new int [*sU];
-	}catch (const bad_alloc & e) {
-		cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    *sU = p;
+    try {
+        *vU = new int[*sU];
+    }catch (const bad_alloc & e) {
+        cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0; i < p; i++)
-		*(*vU+i) = *(v2+i);
+    for (int i = 0; i < p; i++)
+        *(*vU+i) = *(v2+i);
 }
 
 int main(int argc, char const *argv[]) {
-	int v1[5]={1, 2, 20, 4, 5},
-		v2[3]={1, 2, 3},
-		*vU,
-		*vI,
-		sU,
-		sI;
+    int v1[5] = {1, 2, 20, 4, 5}, v2[3] = {1, 2, 3}, *vU, *vI, sU, sI;
 
-	union_intersection(v1, 5, v2, 3, &vU, &sU, &vI, &sI);
+    union_intersection(v1, 5, v2, 3, &vU, &sU, &vI, &sI);
 
-	for (int i = 0; i < 5; i++)
-		cout << "v1[" << i << "] = " << *(v1+i) << endl;
-	cout << "v1 size = " << 5 << endl << endl;
-	for (int i = 0; i < 3; i++)
-		cout << "v2[" << i << "] = " << *(v2+i) << endl;
-	cout << "v2 size = " << 3 << endl << endl;
-	for (int i = 0; i < sU; i++)
-		cout << "vU[" << i << "] = " << *(vU+i) << endl;
-	cout << "Union vector size: " << sU << endl << endl;
-	for (int i = 0; i < sI; i++)
-		cout << "vI[" << i << "] = " << *(vI+i) << endl;
-	cout << "Intersection vector size: " << sI << endl;
+    for (int i = 0; i < 5; i++)
+        cout << "v1[" << i << "] = " << *(v1+i) << endl;
+    cout << "v1 size = " << 5 << endl << endl;
+    for (int i = 0; i < 3; i++)
+        cout << "v2[" << i << "] = " << *(v2+i) << endl;
+    cout << "v2 size = " << 3 << endl << endl;
+    for (int i = 0; i < sU; i++)
+        cout << "vU[" << i << "] = " << *(vU+i) << endl;
+    cout << "Union vector size: " << sU << endl << endl;
+    for (int i = 0; i < sI; i++)
+        cout << "vI[" << i << "] = " << *(vI+i) << endl;
+    cout << "Intersection vector size: " << sI << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

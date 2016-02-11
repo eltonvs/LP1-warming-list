@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado preenche_matriz.cpp que lê um inteiro
  * positivo n e cria uma matriz quadrada n x n que deverá ser preenchida automaticamente
@@ -12,26 +14,36 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::bad_alloc;
 
 int main(int argc, char const *argv[]) {
-	int n;
+    int n, *m;
 
-	// Get matrix size
-	cout << "Enter the matrix size (n): ";
-	cin >> n;
+    // Get matrix size
+    cout << "Enter the matrix size (n): ";
+    cin >> n;
 
-	// Create matrix
-	int m[n][n];
+    // Create matrix
+    try {
+        m = new int[n*n];
+    }catch (const bad_alloc & e) {
+        cerr << "[main()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	// Populate matrix
-	for (int i = 0; i < n*n; i++)
-		*(*m+i) = i+1;
+    // Populate matrix
+    for (int i = 0; i < n*n; i++)
+        *(m+i) = i+1;
 
-	// Print populated matrix
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			cout << (j == 0 ? "| " : " ") << m[i][j] << (j == n - 1 ? " |\n" : " ");
+    // Print populated matrix
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cout << (!j ? "| " : " ") << *(m+i*n+j) << (j == n-1 ? " |\n" : " ");
 
-	return EXIT_SUCCESS;
+    delete[] m;
+
+    return EXIT_SUCCESS;
 }

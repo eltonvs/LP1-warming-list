@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Desenvolva duas funções, NesimoFib(n) e FibMenorL(L), que imprimem, respectiva-
  * mente, a sequência de Fibonacci até seu n-ésimo termo e os m primeiros termos da
@@ -28,32 +30,33 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 int nth_fib(int n) {
-	return (n == 0 || n == 1) ? 1 : nth_fib(n-1) + nth_fib(n-2);
+    return (n == 0 || n == 1) ? 1 : nth_fib(n-1) + nth_fib(n-2);
 }
 
 int smaller_fib(int n) {
-	int i;
-	for(i = 0; nth_fib(i) < n; i++);
-	return i;
+    int i = 0;
+    while (nth_fib(i) < n) i++;
+    return i;
 }
 
 void pyramid_fib(int h) {
-	for (int i = 0; i < h*2-1; i++) {
-		for (int j = 1; j <= h; j++) {
-			if (abs(i-h+1) < j)
-				cout << nth_fib(abs(h-j)) << "\t";
-			else
-				cout << "\t";
-		}
-		cout << endl;
-	}
+    for (int i = 0; i < h*2-1; i++) {
+        for (int j = 1; j <= h; j++) {
+            if (abs(i-h+1) < j)
+                cout << nth_fib(abs(h-j)) << "\t";
+            else
+                cout << "\t";
+        }
+        cout << endl;
+    }
 }
 
 int main(int argc, char const *argv[]) {
-	pyramid_fib(7);
+    pyramid_fib(7);
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

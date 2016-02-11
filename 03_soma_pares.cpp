@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Escreva um programa em C/C++ chamado soma_pares.cpp que lê um número não
  * determinado de pares m, n, todos inteiros e positivos, um par de cada vez, calcula e
@@ -9,18 +11,20 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 int main(int argc, char const *argv[]) {
-	int m, n, sum;
-	cout << "Enter two integer numbers (Press Ctrl + D to exit):" << endl;
+    int m, n, sum;
+    cout << "Enter two integer numbers (Press Ctrl + D to exit):" << endl;
 
-	while(cin >> m && cin >> n) {
-		for (int i = 0; i < n; i++)
-			sum += m + i + 1; // +1 because i starts with 0
-		cout << "The sum of " << n << " consecutive integers from " << m << " is " << sum << endl;
-		sum = 0;
-	}
+    while (cin >> m && cin >> n) {
+        sum = 0;
+        for (int i = 0; i < n; i++)
+            sum += m + i + 1;  // +1 because i starts with 0
+        cout << "The sum of " << n << " consecutive integers from " << m << " is " << sum << endl;
+    }
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

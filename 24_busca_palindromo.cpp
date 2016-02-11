@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C++ chamado busca_palindromo.cpp que lê uma string do
  * usuário e verifica se a mesma é um palíndromo. Um palíndromo é uma palavra, frase,
@@ -19,53 +21,56 @@
 #include <iostream>
 #include <cstring>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cerr;
+using std::bad_alloc;
 
 char *escaped_string(char *str);
 bool is_palidrome(char const *str);
 
 int main(int argc, char const *argv[]) {
-	cout << is_palidrome("arara") << endl;
-	cout << is_palidrome("anilina") << endl;
-	cout << is_palidrome("mirim") << endl;
-	cout << is_palidrome("radar") << endl;
-	cout << is_palidrome("rotor") << endl;
-	cout << is_palidrome("osso") << endl;
-	cout << is_palidrome("ovo") << endl;
-	cout << is_palidrome("iriri") << endl;
-	cout << is_palidrome("mussum") << endl;
-	cout << is_palidrome("A rara arara") << endl;
-	cout << is_palidrome("Socorram-me, subi no onibus em Marrocos") << endl;
-	cout << is_palidrome("A mala nada na lama") << endl;
+    cout << is_palidrome("arara") << endl;
+    cout << is_palidrome("anilina") << endl;
+    cout << is_palidrome("mirim") << endl;
+    cout << is_palidrome("radar") << endl;
+    cout << is_palidrome("rotor") << endl;
+    cout << is_palidrome("osso") << endl;
+    cout << is_palidrome("ovo") << endl;
+    cout << is_palidrome("iriri") << endl;
+    cout << is_palidrome("mussum") << endl;
+    cout << is_palidrome("A rara arara") << endl;
+    cout << is_palidrome("Socorram-me, subi no onibus em Marrocos") << endl;
+    cout << is_palidrome("A mala nada na lama") << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 char *escaped_string(char const *str) {
-	int str_size = strlen(str);
-	char *new_str;
-	try {
-		new_str = new char [str_size];
-	}catch (const bad_alloc & e) {
-		cerr << "[escaped_string()]: bad_alloc caught:" << e.what() << "\n";
-	}
+    int str_size = strlen(str);
+    char *new_str;
+    try {
+        new_str = new char[str_size];
+    }catch (const bad_alloc & e) {
+        cerr << "[escaped_string()]: bad_alloc caught:" << e.what() << "\n";
+    }
 
-	for (int i = 0, j = 0; i < str_size; i++)
-		if (*(str+i) >= 32 && *(str+i) <= 63)
-			continue;
-		else
-			*(new_str+j++) = tolower(*(str+i));
+    for (int i = 0, j = 0; i < str_size; i++)
+        if (*(str+i) >= 32 && *(str+i) <= 63)
+            continue;
+        else
+            *(new_str+j++) = tolower(*(str+i));
 
-	return new_str;
+    return new_str;
 }
 
 bool is_palidrome(char const *str) {
-	char *escaped_str = escaped_string(str);
-	int str_size = strlen(escaped_str);
+    char *escaped_str = escaped_string(str);
+    int str_size = strlen(escaped_str);
 
-	for (int i = 0; i < str_size/2; i++)
-		if (*(escaped_str+i) != *(escaped_str+str_size-i-1))
-			return false;
+    for (int i = 0; i < str_size/2; i++)
+        if (*(escaped_str+i) != *(escaped_str+str_size-i-1))
+            return false;
 
-	return true;
+    return true;
 }

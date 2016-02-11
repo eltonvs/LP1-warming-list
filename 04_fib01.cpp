@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Implemente um programa em C/C++ chamado fib01.cpp que recebe um valor inteiro
  * positivo L e imprime os termos da série de Fibonacci inferiores a L.
@@ -11,22 +13,24 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 int fib(int n) {
-	return (n == 0 || n == 1) ? 1 : fib(n-1) + fib(n-2);
+    return (n == 0 || n == 1) ? 1 : fib(n-1) + fib(n-2);
 }
 
 int main(int argc, char const *argv[]) {
-	int l;
+    int l;
 
-	cout << "Enter a number: ";
-	cin >> l;
+    cout << "Enter a number: ";
+    cin >> l;
 
-	for (int i = 0; fib(i) < l; i++)
-		cout << fib(i) << " ";
+    for (int i = 0; fib(i) < l; i++)
+        cout << fib(i) << " ";
 
-	cout << endl;
+    cout << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Faça uma função em C++ chamada inverte_vetor que recebe um vetor de inteiros
  * como parâmetro e inverte a ordem dos seus elementos, alterando o vetor original pas-
@@ -13,28 +15,31 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 void invert_vector(int *p_v, const int size) {
-	for (int i = 0; i < size/2; i++)
-		*(p_v+i) += *(p_v+size-i-1), *(p_v+size-i-1) = *(p_v+i) - *(p_v+size-i-1), *(p_v+i) -= *(p_v+size-i-1);
+    for (int i = 0; i < size/2; i++)
+        *(p_v+i) += *(p_v+size-i-1),
+        *(p_v+size-i-1) = *(p_v+i) - *(p_v+size-i-1),
+        *(p_v+i) -= *(p_v+size-i-1);
 }
 
 int main(int argc, char const *argv[]) {
-	// Create example vector
-	int v[] = {1, 2, 3, 4, 5, 6, 7};
+    // Create example vector
+    int v[] = {1, 2, 3, 4, 5, 6, 7};
 
-	// Print Original vector
-	for (int i: v)
-		cout << i << endl;
+    // Print Original vector
+    for (int i : v)
+        cout << i << endl;
 
-	// Invert vector
-	cout << "Inverting vector..." << endl;
-	invert_vector(v, 7);
+    // Invert vector
+    cout << "Inverting vector..." << endl;
+    invert_vector(v, 7);
 
-	// Print new (inverted) vector
-	for (int i: v)
-		cout << i << endl;
+    // Print new (inverted) vector
+    for (int i : v)
+        cout << i << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

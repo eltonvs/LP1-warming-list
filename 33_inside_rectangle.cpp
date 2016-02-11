@@ -1,4 +1,6 @@
 /*
+ * Copyright 2016 - Elton Viana
+ *
  * Question:
  * Considerando a estrutura
  *   typedef struct _Ponto {
@@ -21,41 +23,43 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;
 
 typedef struct _Dot {
-	int x;
-	int y;
+    int x;
+    int y;
 } Dot;
 
 int inside_rectangle(const Dot *v1, const Dot *v2, const Dot *p);
 
 int main(int argc, char const *argv[]) {
-	Dot v1, v2, p;
+    Dot v1 = {}, v2 = {}, p = {};
 
-	// Get variables
-	cout << "Enter the rectangle bottom-left vertice:" << endl;
-	cout << "  X = ";
-	cin >> v1.x;
-	cout << "  Y = ";
-	cin >> v1.y;
-	cout << "Enter the rectangle top-right vertice:" << endl;
-	cout << "  X = ";
-	cin >> v2.x;
-	cout << "  Y = ";
-	cin >> v2.y;
-	cout << "Enter the dot coordinates:" << endl;
-	cout << "  X = ";
-	cin >> p.x;
-	cout << "  Y = ";
-	cin >> p.y;
+    // Get variables
+    cout << "Enter the rectangle bottom-left vertice:" << endl;
+    cout << "  X = ";
+    cin >> v1.x;
+    cout << "  Y = ";
+    cin >> v1.y;
+    cout << "Enter the rectangle top-right vertice:" << endl;
+    cout << "  X = ";
+    cin >> v2.x;
+    cout << "  Y = ";
+    cin >> v2.y;
+    cout << "Enter the dot coordinates:" << endl;
+    cout << "  X = ";
+    cin >> p.x;
+    cout << "  Y = ";
+    cin >> p.y;
 
-	// Output
-	cout << "The dot " << (inside_rectangle(&v1, &v2, &p) ? "is" : "isn't") << " inside the rectangle"  << endl;
+    // Output
+    cout << "The dot " << (inside_rectangle(&v1, &v2, &p) ? "is" : "isn't") << " inside the rectangle"  << endl;
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
 int inside_rectangle(const Dot *v1, const Dot *v2, const Dot *p) {
-	return ((*p).x < (*v2).x && (*p).y < (*v2).y && (*p).x > (*v1).x && (*p).y > (*v1).y) ? 1 : 0;
+    return ((*p).x < (*v2).x && (*p).y < (*v2).y && (*p).x > (*v1).x && (*p).y > (*v1).y) ? 1 : 0;
 }
