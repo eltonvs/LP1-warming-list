@@ -78,7 +78,7 @@ int *triple(int n, const int *v, int size) {
     try {
         r = new int[3];
     }catch (const bad_alloc & e) {
-        cerr << "[union_intersection()]: bad_alloc caught:" << e.what() << "\n";
+        cerr << "[triple()]: bad_alloc caught:" << e.what() << "\n";
     }
 
     for (int i = 0; i < size; i++)
