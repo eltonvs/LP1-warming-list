@@ -89,8 +89,11 @@ int main(int argc, char const *argv[]) {
     // Print result vector
     cout << "Result vector: [ ";
     for (int i = 0; i < size_v1 + size_v2; i++)
-        cout << *(result+i) << (i < size_v1 + size_v2 - 1 ? ", " : " ");
+        cout << *(result+i) << (i < (size_v1 + size_v2 - 1) ? ", " : " ");
     cout << "]" << endl;
 
+    delete[] result;
+    delete[] v1;
+    delete[] v2;
     return EXIT_SUCCESS;
 }
