@@ -50,8 +50,8 @@ int main(int argc, char const *argv[]) {
     ofstream file_out;
 
     // Open Files
-    file_in.open("35_spheres_in.txt");
-    file_out.open("35_spheres_out.txt");
+    file_in.open("in/35.in");
+    file_out.open("out/35.out");
 
     // Verify if the files are opened
     if (!file_in.is_open() || !file_out.is_open()) {
