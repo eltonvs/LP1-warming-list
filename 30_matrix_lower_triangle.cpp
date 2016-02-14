@@ -42,6 +42,9 @@ int main(int argc, char const *argv[]) {
 
     cout << "The sum of matrix lower triangle is " << sum_lower_triangle(&m, n) << endl;
 
+    // Free memory
+    delete[] m;
+
     return EXIT_SUCCESS;
 }
 

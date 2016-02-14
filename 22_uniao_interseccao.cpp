@@ -91,5 +91,9 @@ int main(int argc, char const *argv[]) {
         cout << "vI[" << i << "] = " << *(vI+i) << endl;
     cout << "Intersection vector size: " << sI << endl;
 
+    // Free memory
+    delete[] vU;
+    delete[] vI;
+
     return EXIT_SUCCESS;
 }

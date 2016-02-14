@@ -69,8 +69,12 @@ bool is_palidrome(char const *str) {
     int str_size = strlen(escaped_str);
 
     for (int i = 0; i < str_size/2; i++)
-        if (*(escaped_str+i) != *(escaped_str+str_size-i-1))
+        if (*(escaped_str+i) != *(escaped_str+str_size-i-1)) {
+            delete[] escaped_str;
             return false;
+        }
+
+    delete[] escaped_str;
 
     return true;
 }

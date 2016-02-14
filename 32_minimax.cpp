@@ -49,5 +49,8 @@ int main(int argc, char const *argv[]) {
 
     cout << "The minimax element is A[" << minimax[1] << "][" << minimax[2] << "]  = " << minimax[0] << endl;
 
+    // Free memory
+    delete[] a;
+
     return EXIT_SUCCESS;
 }

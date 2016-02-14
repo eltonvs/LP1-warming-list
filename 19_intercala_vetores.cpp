@@ -92,8 +92,10 @@ int main(int argc, char const *argv[]) {
         cout << *(result+i) << (i < (size_v1 + size_v2 - 1) ? ", " : " ");
     cout << "]" << endl;
 
+    // Free memory
     delete[] result;
     delete[] v1;
     delete[] v2;
+
     return EXIT_SUCCESS;
 }

@@ -35,7 +35,9 @@ int main(int argc, char const *argv[]) {
     for (int i = 0; i < size - 1; i++)
         cout << "arc[" << x[i] << ", " << x[i+1] << "] = " << *(arc+i) << endl;
 
+    // Free memory
     delete[] arc;
+
     return EXIT_SUCCESS;
 }
 

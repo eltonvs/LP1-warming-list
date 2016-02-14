@@ -60,15 +60,19 @@ int main(int argc, char const *argv[]) {
 
     new_str = prefix("I like to program in C++", 6);
     cout << new_str << endl;
+    delete[] new_str;
 
     new_str = reverse("Wisdom and Honor");
     cout << new_str << endl;
+    delete[] new_str;
 
     new_str = invertCase("UFRN - DIMAp - Dim0426");
     cout << new_str << endl;
+    delete[] new_str;
 
     new_str = shiftString("House");
     cout << new_str << endl;
+    delete[] new_str;
 
     return EXIT_SUCCESS;
 }
