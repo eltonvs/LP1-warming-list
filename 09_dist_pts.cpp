@@ -23,9 +23,8 @@ typedef struct _Dot {
     double x, y;
 } Dot;
 
-double euclidean_distance(Dot P1, Dot P2) {
-    return sqrt(pow(P2.x - P1.x, 2) + pow(P2.y - P1.y, 2));
-}
+// Prototype
+double euclidean_distance(Dot P1, Dot P2);
 
 int main(int argc, char const *argv[]) {
     Dot P1 = {}, P2 = {};
@@ -51,4 +50,8 @@ int main(int argc, char const *argv[]) {
     cout << "The Euclidean Distance is " << euclidean_distance(P1, P2) << endl;
 
     return EXIT_SUCCESS;
+}
+
+double euclidean_distance(Dot P1, Dot P2) {
+    return sqrt(pow(P2.x - P1.x, 2) + pow(P2.y - P1.y, 2));
 }

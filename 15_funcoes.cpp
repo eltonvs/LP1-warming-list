@@ -22,7 +22,7 @@
 
 // Helpers
 int mdc2(int a, int b) {
-    return a%b ? mdc2(b, a%b) : b;
+    return (a%b) ? mdc2(b, a%b) : b;
 }
 
 int mmc2(int a, int b) {

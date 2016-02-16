@@ -17,9 +17,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-int fib(int n) {
-    return (n == 0 || n == 1) ? 1 : fib(n-1) + fib(n-2);
-}
+// Prototype
+int fib(int n);
 
 int main(int argc, char const *argv[]) {
     int l;
@@ -33,4 +32,8 @@ int main(int argc, char const *argv[]) {
     cout << endl;
 
     return EXIT_SUCCESS;
+}
+
+int fib(int n) {
+    return (n == 0 || n == 1) ? 1 : fib(n-1) + fib(n-2);
 }

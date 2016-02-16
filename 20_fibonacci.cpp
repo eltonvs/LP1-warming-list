@@ -33,6 +33,17 @@
 using std::cout;
 using std::endl;
 
+// Prototypes
+int nth_fib(int n);
+int smaller_fib(int n);
+void pyramid_fib(int h);
+
+int main(int argc, char const *argv[]) {
+    pyramid_fib(7);
+
+    return EXIT_SUCCESS;
+}
+
 int nth_fib(int n) {
     return (n == 0 || n == 1) ? 1 : nth_fib(n-1) + nth_fib(n-2);
 }
@@ -53,10 +64,4 @@ void pyramid_fib(int h) {
         }
         cout << endl;
     }
-}
-
-int main(int argc, char const *argv[]) {
-    pyramid_fib(7);
-
-    return EXIT_SUCCESS;
 }

@@ -18,12 +18,8 @@
 using std::cout;
 using std::endl;
 
-void invert_vector(int *p_v, const int size) {
-    for (int i = 0; i < size/2; i++)
-        *(p_v+i) += *(p_v+size-i-1),
-        *(p_v+size-i-1) = *(p_v+i) - *(p_v+size-i-1),
-        *(p_v+i) -= *(p_v+size-i-1);
-}
+// Prototype
+void invert_vector(int *p_v, const int size);
 
 int main(int argc, char const *argv[]) {
     // Create example vector
@@ -42,4 +38,11 @@ int main(int argc, char const *argv[]) {
         cout << i << endl;
 
     return EXIT_SUCCESS;
+}
+
+void invert_vector(int *p_v, const int size) {
+    for (int i = 0; i < size/2; i++)
+        *(p_v+i) += *(p_v+size-i-1),
+        *(p_v+size-i-1) = *(p_v+i) - *(p_v+size-i-1),
+        *(p_v+i) -= *(p_v+size-i-1);
 }

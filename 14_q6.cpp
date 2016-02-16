@@ -18,15 +18,8 @@ using std::cout;
 using std::endl;
 using std::rand;
 
-int biggers(const int* const vet, const int n, const int x) {
-    // Set return variable
-    auto tot(0);
-
-    for (int i = 0; i < n; i++)
-        if (vet[i] > x) tot++;
-
-    return tot;
-}
+// Prototype
+int biggers(const int* const vet, const int n, const int x);
 
 int main(int argc, char const *argv[]) {
     int n, x;
@@ -52,4 +45,14 @@ int main(int argc, char const *argv[]) {
     cout << "The total number(s) greater than " << x << " on vector is " << biggers(vet, n, x) << endl;
 
     return EXIT_SUCCESS;
+}
+
+int biggers(const int* const vet, const int n, const int x) {
+    // Set return variable
+    auto tot(0);
+
+    for (int i = 0; i < n; i++)
+        if (vet[i] > x) tot++;
+
+    return tot;
 }

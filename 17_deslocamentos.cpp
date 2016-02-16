@@ -23,20 +23,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void shift_n(int *n1, int *n2, int *n3, int *n4, int d) {
-    d %= 4;
-    if (d > 0) {
-        for (int i = 0; i < d; i++) {
-            int aux = *n4;
-            *n4 = *n3, *n3 = *n2, *n2 = *n1, *n1 = aux;
-        }
-    } else {
-        for (int i = 0; i > d; i--) {
-            int aux = *n1;
-            *n1 = *n2, *n2 = *n3, *n3 = *n4, *n4 = aux;
-        }
-    }
-}
+// Prototype
+void shift_n(int *n1, int *n2, int *n3, int *n4, int d);
 
 int main(int argc, char const *argv[]) {
     int n1, n2, n3, n4, d;
@@ -63,4 +51,19 @@ int main(int argc, char const *argv[]) {
     cout << n4 << ")" << endl;
 
     return EXIT_SUCCESS;
+}
+
+void shift_n(int *n1, int *n2, int *n3, int *n4, int d) {
+    d %= 4;
+    if (d > 0) {
+        for (int i = 0; i < d; i++) {
+            int aux = *n4;
+            *n4 = *n3, *n3 = *n2, *n2 = *n1, *n1 = aux;
+        }
+    } else {
+        for (int i = 0; i > d; i--) {
+            int aux = *n1;
+            *n1 = *n2, *n2 = *n3, *n3 = *n4, *n4 = aux;
+        }
+    }
 }

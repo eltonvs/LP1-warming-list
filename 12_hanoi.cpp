@@ -31,16 +31,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void move(int n, char from, char to, char other, int *num_movements) {
-    if (n == 1) {
-        cout << "Move from " << from << " to " << to << endl;
-    } else {
-        move(n - 1, from, other, to, num_movements);
-        cout << "Move from " << from << " to " << to << endl;
-        move(n - 1, other, to, from, num_movements);
-    }
-    (*num_movements)++;
-}
+// Prototype
+void move(int n, char from, char to, char other, int *num_movements);
 
 int main(int argc, char const *argv[]) {
     int discs, mv = 0;
@@ -56,4 +48,15 @@ int main(int argc, char const *argv[]) {
     cout << mv << " movement" << (mv > 1 ? "s" : "") << " required" << endl;
 
     return EXIT_SUCCESS;
+}
+
+void move(int n, char from, char to, char other, int *num_movements) {
+    if (n == 1) {
+        cout << "Move from " << from << " to " << to << endl;
+    } else {
+        move(n - 1, from, other, to, num_movements);
+        cout << "Move from " << from << " to " << to << endl;
+        move(n - 1, other, to, from, num_movements);
+    }
+    (*num_movements)++;
 }

@@ -28,20 +28,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-int roots(float a, float b, float c, float *x1, float *x2) {
-    *x1 = 0, *x2 = 0;
-    if ((a > 0 && c > 0) || (a < 0 && c < 0)) {
-        return 0;
-    } else if (c == 0) {
-        *x1 = -b/a;
-        return 1;
-    } else {
-        float delta = pow(b, 2) - 4*a*c;
-        *x1 = (-b + sqrt(delta))/2, *x2 = -(b + sqrt(delta))/2;
-        if (*x1 < *x2) *x1 += *x2, *x2 = *x1 - *x2, *x1 -= *x2;
-        return 2;
-    }
-}
+// Prototype
+int roots(float a, float b, float c, float *x1, float *x2);
 
 int main(int argc, char const *argv[]) {
     float a, b, c, x1, x2;
@@ -61,4 +49,19 @@ int main(int argc, char const *argv[]) {
     cout << "x'' = " << x2 << endl;
 
     return EXIT_SUCCESS;
+}
+
+int roots(float a, float b, float c, float *x1, float *x2) {
+    *x1 = 0, *x2 = 0;
+    if ((a > 0 && c > 0) || (a < 0 && c < 0)) {
+        return 0;
+    } else if (c == 0) {
+        *x1 = -b/a;
+        return 1;
+    } else {
+        float delta = pow(b, 2) - 4*a*c;
+        *x1 = (-b + sqrt(delta))/2, *x2 = -(b + sqrt(delta))/2;
+        if (*x1 < *x2) *x1 += *x2, *x2 = *x1 - *x2, *x1 -= *x2;
+        return 2;
+    }
 }

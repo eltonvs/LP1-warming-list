@@ -15,32 +15,10 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void swap(int *a, int *b) {
-    *a += *b, *b = *a - *b, *a -= *b;
-}
-
-void sort(int *v, int s) {
-    for (int i = 0; i < s - 1; i++)
-        if (v[i] > v[i+1]) {
-            swap(&v[i], &v[i+1]);
-            i = 0;
-        }
-}
-
-void insert_sort(int *v, int s, int n) {
-    if (n > v[s-1]) {
-        v[s] = n;
-        return;
-    }
-
-    for (int i = 0; i < s; i++)
-        if (n < v[i]) {
-            for (int j = s; j > i; j--)
-                v[j] = v[j-1];
-            v[i] = n;
-            return;
-        }
-}
+// Prototypes
+void swap(int *a, int *b);
+void sort(int *v, int s);
+void insert_sort(int *v, int s, int n);
 
 int main(int argc, char const *argv[]) {
     int v[30];
@@ -67,4 +45,31 @@ int main(int argc, char const *argv[]) {
         cout << i << endl;
 
     return EXIT_SUCCESS;
+}
+
+void swap(int *a, int *b) {
+    *a += *b, *b = *a - *b, *a -= *b;
+}
+
+void sort(int *v, int s) {
+    for (int i = 0; i < s - 1; i++)
+        if (v[i] > v[i+1]) {
+            swap(&v[i], &v[i+1]);
+            i = 0;
+        }
+}
+
+void insert_sort(int *v, int s, int n) {
+    if (n > v[s-1]) {
+        v[s] = n;
+        return;
+    }
+
+    for (int i = 0; i < s; i++)
+        if (n < v[i]) {
+            for (int j = s; j > i; j--)
+                v[j] = v[j-1];
+            v[i] = n;
+            return;
+        }
 }

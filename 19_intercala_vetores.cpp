@@ -27,23 +27,8 @@ using std::endl;
 using std::cerr;
 using std::bad_alloc;
 
-char *merge_vector(const char *vetA, int sizeA, const char *vetB, int sizeB) {
-    char *result_vector;
-    try {
-        result_vector = new char[sizeA+sizeB];
-    }catch (const bad_alloc & e) {
-        cerr << "[merge_vector()]: bad_alloc caught:" << e.what() << "\n";
-    }
-
-    for (int i = 0, j = 0; i < sizeA || i < sizeB; i++) {
-        if (i < sizeA)
-            *(result_vector+j++) = *(vetA+i);
-        if (i < sizeB)
-            *(result_vector+j++) = *(vetB+i);
-    }
-
-    return result_vector;
-}
+// Prototype
+char *merge_vector(const char *vetA, int sizeA, const char *vetB, int sizeB);
 
 int main(int argc, char const *argv[]) {
     char *v1, *v2;
@@ -98,4 +83,22 @@ int main(int argc, char const *argv[]) {
     delete[] v2;
 
     return EXIT_SUCCESS;
+}
+
+char *merge_vector(const char *vetA, int sizeA, const char *vetB, int sizeB) {
+    char *result_vector;
+    try {
+        result_vector = new char[sizeA+sizeB];
+    }catch (const bad_alloc & e) {
+        cerr << "[merge_vector()]: bad_alloc caught:" << e.what() << "\n";
+    }
+
+    for (int i = 0, j = 0; i < sizeA || i < sizeB; i++) {
+        if (i < sizeA)
+            *(result_vector+j++) = *(vetA+i);
+        if (i < sizeB)
+            *(result_vector+j++) = *(vetB+i);
+    }
+
+    return result_vector;
 }
